@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,7 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Start zendesk',
         child: Icon(Icons.chat),
         onPressed: () async {
-          print('pressed');
+          MethodChannel _methodChannel = MethodChannel("flutterzendeskunified");
+          await _methodChannel
+              .invokeMethod("startZendesk", null);
         },
       ),
     );
